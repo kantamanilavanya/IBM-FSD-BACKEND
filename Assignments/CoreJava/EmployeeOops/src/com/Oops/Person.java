@@ -1,4 +1,4 @@
-package com.Oops;
+package com.oops;
 
 /*
  *1.cannot create instance 

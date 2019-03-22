@@ -1,4 +1,4 @@
-package com.Oops;
+package com.oops;
 
 public class PersonImpl {
 

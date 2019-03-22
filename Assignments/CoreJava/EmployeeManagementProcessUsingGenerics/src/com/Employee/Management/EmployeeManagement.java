@@ -1,4 +1,4 @@
-package com.Employee.Management;
+package com.employee.management;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

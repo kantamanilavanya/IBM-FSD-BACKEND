@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	
+   http://www.springframework.org/schema/beans/spring-beans.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   <context:annotation-config />
+	<context:component-scan
+		base-package="com.Employee.Spring"></context:component-scan>
+
+	<!-- Bean instantiation with default constructor -->
+	<bean id="dateFormater" class="java.time.LocalDate"
+		factory-method="parse">
+		<constructor-arg value="1995-07-11"></constructor-arg>
+
+	</bean>
+
+	<bean id="employee" class="com.Employee.Spring.Employee">
+		<constructor-arg name="id" value="100"></constructor-arg>
+		<constructor-arg name="name" value="lavanya"></constructor-arg>
+		<constructor-arg name="dob" ref="dateFormater"></constructor-arg>
+
+		<constructor-arg name="address">
+			<bean id="address" class="com.Employee.Spring.Address">
+				<constructor-arg name="city" value="Bangalore"></constructor-arg>
+				<constructor-arg name="country" value="India"></constructor-arg>
+				<constructor-arg name="pinCode" value="123456"></constructor-arg>
+			</bean>
+		</constructor-arg>
+		<constructor-arg name="designation"
+			value="Java Full Stack"></constructor-arg>
+		<constructor-arg name="salary" value="50000"></constructor-arg>
+		<constructor-arg name="skills">
+			<list>
+				<value>Java</value>
+				<value>HTML</value>
+				<value>CSS</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg name="fullTime" value="true"></constructor-arg>
+	</bean>
+
+	<bean id="employee1" class="com.Employee.Spring.Employee"
+		autowire="constructor">
+		<property name="id" value="101" />
+		<property name="name" value="gayathri" />
+
+
+
+		<property name="designation" value="HR " />
+		<property name="salary" value="40000" />
+		<property name="skills">
+			<list>
+				<value>Marketing</value>
+				<value>Finance</value>
+				<value>HR</value>
+			</list>
+		</property>
+		<property name="fullTime" value="true"></property>
+	</bean>
+
+
+
+
+</beans>
